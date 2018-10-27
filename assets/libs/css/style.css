@@ -1,0 +1,89 @@
+body {
+	margin: 0 auto;
+}
+
+.box {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+	background-color: #eee;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+table.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.table td, table.table th {
+	border: 1px solid #555;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.table tr:nth-child(even) { background-color: darkgray; }
+
+table.table tr:hover { background-color: lightgray; }
+
+table.table th.stock {
+	color: #333;
+	background-color: #01A101;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+table.table th.suppliers {
+	color: #333;
+	background-color: #28be7d;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+.edit-button {
+	color: white;
+	background-color: orange;
+	text-decoration: none;
+	padding: 10px ;
+	border-radius: 3px;
+}
+
+.delete-button {
+	color: white;
+	background-color: red;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.edit-button:hover, .delete-button:hover {
+	color: #555;
+}
+
+.label-error {
+	max-width: 100%;
+	background-color: lightcoral;
+	border-radius: 3px;
+	color: #fff;
+	margin-bottom: 20px;
+	padding: 10px 0;
+}
+
+.inline-actions {
+	margin: 10px 0;
+	display: flex;
+}
+
+.inline-actions .action {
+	display: inline-block !important;
+	padding: 20px;
+	width: 100%;
+	color: black;
+	background-color: #ddd;
+	text-align: center;
+}
+
+.inline-actions .action:hover {
+	background-color: lightcoral;
+}
