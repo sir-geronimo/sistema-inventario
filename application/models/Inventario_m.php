@@ -131,9 +131,26 @@ class Inventario_m extends CI_Model {
 
 	public function pay($id)
 	{
-		$this->db->set('pagado', 1, FALSE);
+		if ($id<>0) {
+			$this->db->set('pagado', 1, FALSE);
 		$this->db->where('id', $id);
 		$this->db->limit(1);
 		$this->db->update('articulos_vendidos');
+		} else {
+
+			$this->db->select('id');
+	     	$this->db->from('articulos_vendidos');
+	     	$this->db->where('pagado', 0);
+		    $sql = $this->db->get()->result_array();
+
+		      foreach ($sql as $value) {
+		    		$this->db->set('pagado', 1, FALSE);
+		            $this->db->where('id', $value['id']);
+	            	$this->db->limit(1);
+		            $this->db->update('articulos_vendidos');		    	
+		      }
+
+		}
+		
 	}
 }

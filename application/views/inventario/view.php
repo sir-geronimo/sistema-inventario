@@ -28,7 +28,7 @@ Plantilla::apply();
 		<div class="action-button clearfix">
 			<a href="<?= base_url('inicio/home') ?>" class="btn btn-secondary">< Volver</a>
 			<a href="<?= base_url('inventario/purchased') ?>" class="btn btn-success">Articulos comprados ></a>
-			<a href="<?= base_url('inventario/sold') ?>" class="btn btn-warning">Articulos vendidos ></a>
+			<a href="<?= base_url('inventario/sold') ?>" class="btn btn-warning">Caja ></a>
 			<!-- Dropdown menu with user -->
 			<div class="btn-group float-right">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -133,7 +133,7 @@ Plantilla::apply();
 							</div>
 							<div class="modal-footer">
 								<button type="button" data-dismiss="modal" class="btn btn-secondary">Cerrar</button>
-								<button type="submit" class="btn btn-danger">Vender</button>
+								<button type="submit" class="btn btn-danger">Enviar a caja</button>
 							</div>
 						</form>
 					</div>

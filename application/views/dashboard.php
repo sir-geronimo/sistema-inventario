@@ -33,10 +33,10 @@ Plantilla::apply();
 				<span>Agregar al inventario</span>
 			</a>
 			<a class="action" href="<?= base_url('inventario/view') ?>">
-				<span>Ver inventario</span>
+				<span>Inventario</span>
 			</a>
 			<a class="action" href="<?= base_url('suplidores/view') ?>">
-				<span>Ver suplidores</span>
+				<span>Suplidores</span>
 			</a>
 		</div>
 		<form method="POST" action="<?= base_url('usuarios/logout') ?>">

@@ -47,13 +47,13 @@ $CI =& get_instance();
 		<table id="articulos_vendidos" class="table" style="border-collapse: collapse !important;">
 			<thead>
 				<tr>
-					<th colspan="8" style="background-color: #30BF24; font-size: 24px;">Articulos Vendidos</th>
+					<th colspan="8" style="background-color: #30BF24; font-size: 24px;">Articulos en caja</th>
 				</tr>
 				<tr>
 					<th class="stock">ID del Articulo</th>
 					<th class="stock">Nombre</th>
-					<th class="stock">Fecha de venta</th>
-					<th class="stock">Cantidad vendida</th>
+					<th class="stock">Fecha</th>
+					<th class="stock">Cantidad</th>
 					<th class="stock">Estado</th>
 				</tr>
 			</thead>
@@ -72,13 +72,14 @@ $CI =& get_instance();
 				<tr>
 					<th class="stock">ID del Articulo</th>
 					<th class="stock">Nombre</th>
-					<th class="stock">Fecha de venta</th>
-					<th class="stock">Cantidad vendida</th>
-				    <th class="stock">Estado</th>
+					<th class="stock">Fecha</th>
+					<th class="stock">Cantidad</th>
+				    <th class="stock" style="background-color: #EAF0EA;"><a style="margin-left: 1%;" href='pagar/0' class='btn btn-outline-success'>Confirmar todo</a></th>
 				</tr>				
 			</tfoot>
 		</table>
 		<div class="text-center"><b>Total articulos: <?= count($articulos_vendidos) ?></b></div>
 		<?php endif;?>
+		<a href='#' class='btn btn-outline-primary btn-lg'>Facturar</a>
 	</div>
 </div>
