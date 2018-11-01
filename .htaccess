@@ -1,4 +1,16 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+# PONGA EN-- RewriteBase --EL DIRECTORIO DONDE ESTA EL PROYECTO
+
+RewriteBase /sistema-inventario/
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} ^/system.*
+
+ RewriteRule ^(.*)$ index.php?/$1 [L]
+
+ RewriteCond %{REQUEST_FILENAME} !-f
+
+ RewriteCond %{REQUEST_FILENAME} !-d
+
+ RewriteRule ^(.+)$ index.php?/$1 [L]
+
+ ErrorDocument 404 index.php
