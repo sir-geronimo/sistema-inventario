@@ -8,7 +8,14 @@ class Facturacion extends CI_Controller {
         $this->load->model('Facturacion_m', 'fm');
     }
 
-    function index() {
-        
+    function facturar($total) {
+    	if ($total>0) {
+    		  $this->fm->facturar(rand(1, 9999), $total);
+              redirect(base_url('inventario/sold'),'refresh');
+    	} else {
+    		echo '<script type="text/javascript">alert("Debe tener productos en caja para poder facturar");</script>';
+    		  redirect(base_url('inventario/sold'),'refresh');
+    	}
+    	
     }
 }

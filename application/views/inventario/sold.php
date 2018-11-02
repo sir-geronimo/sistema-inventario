@@ -22,6 +22,26 @@ $CI =& get_instance();
 	    });
 	} );
 </script>
+<script>
+
+var totalDeuda=0;
+$(document).ready(function() {
+
+$(".total").each(function(){
+
+	totalDeuda+=parseInt($(this).html()) || 0;
+
+});
+
+//console.log("http://localhost/sistema-inventario/inventario/"+totalDeuda);
+
+});
+
+function facturar() {
+	//window.locationf("http://localhost/sistema-inventario/inventario/"+totalDeuda);
+	location.href = "http://localhost/sistema-inventario/facturacion/facturar/"+totalDeuda;
+}
+</script>
 
 <div class="container-fluid">
 	<div class="box">
@@ -54,6 +74,8 @@ $CI =& get_instance();
 					<th class="stock">Nombre</th>
 					<th class="stock">Fecha</th>
 					<th class="stock">Cantidad</th>
+					<th class="stock">Precio</th>
+					<th class="stock">Total</th>
 					<th class="stock">Estado</th>
 				</tr>
 			</thead>
@@ -64,6 +86,8 @@ $CI =& get_instance();
 						<td><?= $articulo->nombre ?></td>
 						<td><?= $articulo->fecha_venta ?></td>
 						<td><?= $articulo->cantidad ?></td>
+						<td><?= $articulo->precio ?></td>
+						<td class="total"><?= $articulo->cantidad*$articulo->precio ?></td>
 						<td><?= $retVal = ($articulo->pagado > 0) ? "Pagado" : "<a href='pagar/".$articulo->id."' class='btn btn-success'>Pagar</a>" ;?></td>
 					</tr>
 				<?php endforeach;?>
@@ -74,12 +98,14 @@ $CI =& get_instance();
 					<th class="stock">Nombre</th>
 					<th class="stock">Fecha</th>
 					<th class="stock">Cantidad</th>
+					<th class="stock">Precio</th>
+					<th class="stock">Total</th>
 				    <th class="stock" style="background-color: #EAF0EA;"><a style="margin-left: 1%;" href='pagar/0' class='btn btn-outline-success'>Confirmar todo</a></th>
 				</tr>				
 			</tfoot>
 		</table>
 		<div class="text-center"><b>Total articulos: <?= count($articulos_vendidos) ?></b></div>
 		<?php endif;?>
-		<a href='#' class='btn btn-outline-primary btn-lg'>Facturar</a>
+		<button onclick="facturar();" class='btn btn-outline-primary btn-lg' style="margin-left: 1%;">Facturar</button>
 	</div>
 </div>

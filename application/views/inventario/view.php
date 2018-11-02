@@ -111,11 +111,13 @@ Plantilla::apply();
 								<input type="hidden" name="sell_id" id="sell_id">
 								<!-- Nombre -->
 								<div class="form-group input-group">
+									
 									<div class="input-group-prepend">
 										<label for="nombre" class="input-group-text">Nombre</label>
 									</div>
-									<input class="form-control" readonly name="nombre" id="nombre" type="text" required>
+									<input class="form-control" readonly name="nombre" id="nombre" type="text" required>								
 								</div>
+								<input style="display: none;" class="form-control" readonly name="precio" id="precio" type="text" required>
 								<!-- Cantidad -->
 								<div class="form-group input-group">
 									<div class="input-group-prepend">
@@ -172,6 +174,7 @@ Plantilla::apply();
 			var item = items.find(function (element) {
 				$('#sell_id').val(element.id);
 				$('#nombre').val(element.nombre);
+				$('#precio').val(element.precio_venta);
 				$('#fecha_venta').val(today);
 				return element.id == $(event.currentTarget).data('id')
 			});

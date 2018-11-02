@@ -37,6 +37,7 @@ class Inventario_m extends CI_Model {
 		$this->db->select('articulos_vendidos.*, articulos.nombre');
 		$this->db->from('articulos_vendidos');
 		$this->db->join('articulos', 'articulos_vendidos.id_articulo = articulos.id', 'left');
+		$this->db->where('articulos_vendidos.id_factura', 0);
 		$sql = $this->db->get();
 
 		return $sql->result();
@@ -115,7 +116,8 @@ class Inventario_m extends CI_Model {
 		$data = [
 			'id_articulo' => $id,
 			'fecha_venta' => date('Y-m-d'),
-			'cantidad' => $this->input->post('cantidad_nueva')
+			'cantidad' => $this->input->post('cantidad_nueva'),
+			'precio' => $this->input->post('precio')
 		];
 
 		$this->db->set('cantidad', 'cantidad-'.$data['cantidad'], FALSE);
