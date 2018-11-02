@@ -21,6 +21,24 @@ class Facturacion_m extends CI_Model {
 			    $this->db->set($data);
 				$this->db->insert('facturas');
 	}
+
+	public function getFacturas()
+	{
+		$this->db->select('*');
+		$this->db->from('facturas');
+		$sql = $this->db->get()->result();
+
+		return $sql;
+	}
     
+    public function getFactura($id)
+	{
+		$this->db->select('*');
+		$this->db->where('id', $id);
+		$this->db->from('facturas');
+		$sql = $this->db->get()->result();
+
+		return $sql;
+	}
 }
        

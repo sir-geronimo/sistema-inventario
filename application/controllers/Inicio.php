@@ -44,6 +44,10 @@ class Inicio extends CI_Controller {
 			redirect(base_url('inicio/login'),'refresh');
 		}
 
-		$this->load->view('dashboard');
+        $this->load->model('Facturacion_m', 'fm');
+        $data = [
+			'facturas' => $this->fm->getFacturas()
+		];
+		$this->load->view('dashboard', $data);
 	}
 }

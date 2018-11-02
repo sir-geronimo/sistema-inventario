@@ -18,4 +18,13 @@ class Facturacion extends CI_Controller {
     	}
     	
     }
+
+    public function verF($id)
+    {
+    	$this->load->model('Facturacion_m', 'fm');
+        $data = [
+			'factura' => $this->fm->getFactura($id)
+		];
+    	$this->load->view('inventario/factura', $data);
+    }
 }
