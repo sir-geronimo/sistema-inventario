@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $CI =& get_instance();
 Plantilla::apply();
-//var_dump($factura);
+//var_dump($articulos_vendidos);
 ?>
 <br><br>
 <div class="invoice-box">
@@ -12,13 +12,12 @@ Plantilla::apply();
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                                <img src="https://itla.edu.do/identidad_corporativa/Logo_Full_Color/Logo_Color_Full.png" style="width:100%; max-width:300px;">
                             </td>
                             
                             <td>
-                                Invoice #: 123<br>
-                                Created: January 1, 2015<br>
-                                Due: February 1, 2015
+                                Factura #: <?= $factura[0]->id ?><br>
+                                Fecha creacion: <?= $factura[0]->fecha_facturacion ?><br>
                             </td>
                         </tr>
                     </table>
@@ -30,15 +29,13 @@ Plantilla::apply();
                     <table>
                         <tr>
                             <td>
-                                Sparksuite, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, CA 12345
+                                Instituto de las americas<br>
+                                Santo Domingo Este/ Rep.Dom<br>
                             </td>
                             
                             <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
+                                Cliente factura rapida.<br>
+                                Codigo de cliente: <?= $factura[0]->codigo_cliente ?><br>
                             </td>
                         </tr>
                     </table>
@@ -47,69 +44,30 @@ Plantilla::apply();
             
             <tr class="heading">
                 <td>
-                    Payment Method
-                </td>
-                
+                	<div class="form-inline"><div style="width: 40%;">Nombre</div> <div style="margin-left: 40%;">Cantidad</div></div>
+                    
+                </td>             
                 <td>
-                    Check #
+                	<div class="form-inline"> <div style="margin-left: 30%; margin-right: 10%;">Precio</div><div class="text-center" style="width: 40%;">Total</div></div>                
                 </td>
             </tr>
-            
-            <tr class="details">
-                <td>
-                    Check
-                </td>
-                
-                <td>
-                    1000
-                </td>
-            </tr>
-            
-            <tr class="heading">
-                <td>
-                    Item
-                </td>
-                
-                <td>
-                    Price
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Website design
-                </td>
-                
-                <td>
-                    $300.00
-                </td>
-            </tr>
-            
-            <tr class="item">
-                <td>
-                    Hosting (3 months)
-                </td>
-                
-                <td>
-                    $75.00
-                </td>
-            </tr>
-            
-            <tr class="item last">
-                <td>
-                    Domain name (1 year)
-                </td>
-                
-                <td>
-                    $10.00
-                </td>
-            </tr>
-            
+            	<?php foreach ($articulos_vendidos as $articulo): ?>
+				<tr class="item">
+                  <td>
+  			    <div class="form-inline"><div style="width: 40%;"><?= $articulo->nombre ?></div> <div style="margin-left: 40%;"><?= $articulo->cantidad ?></div></div>
+                  </td>             
+                  <td>
+                  	<div class="form-inline"> <div style="margin-left: 30%; margin-right: 10%;"><?= $articulo->precio ?></div><div class="text-right" style="width: 40%;"><?= $articulo->cantidad*$articulo->precio ?></div></div>
+                    
+                  </td>              
+               </tr>
+				<?php endforeach;?>
+
             <tr class="total">
                 <td></td>
                 
                 <td>
-                   Total: $385.00
+                   Total: $<?= $factura[0]->total ?>
                 </td>
             </tr>
         </table>

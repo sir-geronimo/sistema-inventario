@@ -40,5 +40,15 @@ class Facturacion_m extends CI_Model {
 
 		return $sql;
 	}
+
+	public function getArt($id) {
+		$this->db->select('articulos_vendidos.*, articulos.nombre');
+		$this->db->from('articulos_vendidos');
+		$this->db->join('articulos', 'articulos_vendidos.id_articulo = articulos.id', 'left');
+		$this->db->where('articulos_vendidos.id_factura', $id);
+		$sql = $this->db->get()->result();
+
+		return $sql;
+	}
 }
        
