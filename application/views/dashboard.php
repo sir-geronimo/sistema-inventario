@@ -50,7 +50,7 @@ Plantilla::apply();
 					<th>Codigo de cliente</th>
 					<th>Fecha</th>
 					<th>Total de factura</th>
-					<th>Acciones</th>
+					<th><i class="fas fa-bars"></i></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -72,7 +72,7 @@ Plantilla::apply();
 					<th>Codigo de cliente</th>
 					<th>Fecha</th>
 					<th>Total de factura</th>
-					<th>Acciones</th>
+					<th><i class="fas fa-bars"></i></th>
 				</tr>				
 			</tfoot>
 		</table>

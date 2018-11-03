@@ -33,13 +33,10 @@ $(".total").each(function(){
 
 });
 
-//console.log("http://localhost/sistema-inventario/inventario/"+totalDeuda);
-
 });
 
 function facturar() {
-	//window.locationf("http://localhost/sistema-inventario/inventario/"+totalDeuda);
-	location.href = "http://localhost/sistema-inventario/facturacion/facturar/"+totalDeuda;
+	location.href = "http://localhost/inventario/facturacion/facturar/"+totalDeuda;
 }
 </script>
 
