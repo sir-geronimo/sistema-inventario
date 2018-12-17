@@ -36,7 +36,7 @@ $(".total").each(function(){
 });
 
 function facturar() {
-	location.href = "http://localhost/inventario/facturacion/facturar/"+totalDeuda;
+	location.href = "<?= base_url('facturacion/facturar/')?>"+totalDeuda;
 }
 </script>
 
